@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title Mobile Store</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <style>
+        .carousel-item {
+            height: 50vh;
+        }
+
+        .card {
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        }
+
+        .footer-cta {
+            box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px;
+        }
+
+        .price {
+            color: #263238;
+            font-size: 24px;
+        }
+
+        .card-title {
+            color: #263238
+        }
+
+        .sale {
+            color: #E53935
+        }
+
+        .sale-badge {
+            background-color: #E53935
+        }
+    </style>
+    <!-- Navbar -->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light text-bg-info">
+        <!-- Container wrapper -->
+        <div class="container">
+            <!-- Toggle button -->
+            <button class="navbar-toggler"
+                    type="button"
+                    data-mdb-toggle="collapse"
+                    data-mdb-target="#navbarSupportedContent1"
+                    aria-controls="navbarSupportedContent1"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <i class="">X</i>
+            </button>
+
+            <!-- Collapsible wrapper -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+                <!-- Navbar brand -->
+                <a class="navbar-brand mt-2 mt-sm-0" href="#">
+                    <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/phone-store-logo-design-template-57d55d352f1fd851a6eecf7d1fbaef6e_screen.jpg?ts=1603721887"
+                         height="30"
+                         alt="Mobile Store Logo"
+                         loading="lazy" />
+                </a>
+                <!-- Left links -->
+                <ul class="navbar-nav me-auto mb-2 mb-lg-2">
+                    <li>
+                        <a class="nav-link" href="https://localhost:44372/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://localhost:44372/MobilePhone/">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://localhost:44372/Customer/ShoppingCart">Cart</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://localhost:44372/Home/About"> About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://localhost:44372/Home/Contact">Contact</a>
+                    </li>
+                </ul>
+                <!-- Left links -->
+            </div>
+            <!-- Collapsible wrapper -->
+            <!-- Right elements -->
+            <div class="d-flex align-items-center">
+                <!-- Icon -->
+                <a class="nav-link me-3" href="#">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="badge rounded-pill badge-notification bg-success">1</span>
+                </a>
+                @Html.Partial("_LoginPartial")
+            </div>
+            <!-- Right elements -->
+
+        </div>
+        <!-- Container wrapper -->
+    </nav>
+    <!-- Navbar -->
+
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year The Mobile Store</p>
+        </footer>
+    </div>
+</body>
+</html>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Styles.Render("~/Content/fontawesome")
+    @Scripts.Render("~/scripts/mdb")
+    @Styles.Render("~/Content/mdb")
+    @Styles.Render("~/Content/bootstrap")
+    @RenderSection("scripts", required: false)
+}
