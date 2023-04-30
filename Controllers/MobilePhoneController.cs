@@ -20,18 +20,18 @@ namespace MobileStoreV3.Controllers
             return View("Index",mobilePhones);
         }
 
-        // GET: MobilePhoneModel/Create
-        [Authorize(Roles = "cashier")]
-        public ActionResult Create()
+        // GET: MobilePhoneM/AddProduct
+        //[Authorize(Roles = "cashier")]
+        public ActionResult AddProduct( string returnUrl)
         {
-            return View();
+            return View("_AddMobilePhone");
         }
 
-        // POST: MobilePhoneModel/Create
+        // POST: MobilePhoneM/AddProduct
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "cashier")]
-        public ActionResult Create([Bind(Include = "Name,Description,ImageUrl,Price")] MobilePhoneModel mobilePhone)
+        //[Authorize(Roles = "cashier")]
+        public ActionResult AddProduct(MobilePhoneModel mobilePhone)
         {
             if (ModelState.IsValid)
             {
