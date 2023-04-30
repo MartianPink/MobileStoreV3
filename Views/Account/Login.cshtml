@@ -1,10 +1,18 @@
 ﻿@using MobileStoreV3.Models
 @model LoginViewModel
 @{
-    ViewBag.Title = "Log in";
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/modernizr")
+@Scripts.Render("~/Scripts/mdb.min.js")
+@Scripts.Render("~/bundles/jqueryval")
+@Scripts.Render("~/Content/fontawesome/all.js")
+@Styles.Render("~/Content/fontawesome/css/all.css")
+@Styles.Render("~/Content/css/mdb.dark.min.css")
+@Styles.Render("~/Content/bootstrap")
 
-<h2>@ViewBag.Title.</h2>
 <style>
     .gradient-custom-2 {
         /* fallback for old browsers */
@@ -57,8 +65,8 @@
                                         <input type="password" id="form2Example22" class="form-control" />
                                     </div>
 
-                                    <div class="text-center pt-1 mb-5 pb-1">
-                                        <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="button">
+                                    <div class="pt-1 mb-5 pb-1">
+                                        <button class="btn btn-default btn-outline-primary" type="button">
                                             Login
                                         </button>
                                         <a class="text-muted" href="#!">Forgot password?</a>
@@ -66,13 +74,8 @@
 
                                     <div class="d-flex align-items-center justify-content-center pb-4">
                                         <p class="mb-0 me-2">Don't have an account?</p>
-                                        <button type="button" class="btn btn-outline-danger" >
-                                            <a href="https://localhost:44372/Account/Register">
-                                            Create new
-                                            </a>
-                                        </button>
+                                        @Html.ActionLink("Create New", "Register", "Account", new { returnUrl = "https://localhost:44372/Account/Register" }, new { @class = "btn btn-default btn-outline-primary" })
                                     </div>
-
                                 </form>
 
                             </div>
@@ -92,10 +95,3 @@
     </div>
 </section>
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-    @Styles.Render("~/Content/fontawesome")
-    @Scripts.Render("~/scripts/mdb")
-    @Styles.Render("~/Content/mdb")
-    @Styles.Render("~/Content/bootstrap")
-}

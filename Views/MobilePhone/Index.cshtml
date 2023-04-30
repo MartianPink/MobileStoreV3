@@ -1,5 +1,22 @@
 ﻿@model IEnumerable<MobileStoreV3.Models.MobilePhoneModel>
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/modernizr")
+@Scripts.Render("~/Scripts/mdb.min.js")
+@Scripts.Render("~/bundles/jqueryval")
+@Scripts.Render("~/Content/fontawesome/all.js")
+@Styles.Render("~/Content/fontawesome/css/all.css")
+@Styles.Render("~/Content/bootstrap")
 
+<style>
+    .gradient-custom-2 {
+        /* fallback for old browsers */
+        background: #fccb90;
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+    }
+</style>
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
@@ -41,15 +58,6 @@
                 @Html.ActionLink("Delete", "Delete", new { id = item.Id })
             </td>
         </tr>
-}
+    }
 
 </table>
-
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-    @Styles.Render("~/Content/fontawesome")
-    @Scripts.Render("~/scripts/mdb")
-    @Styles.Render("~/Content/mdb")
-    @Styles.Render("~/Content/bootstrap")
-}

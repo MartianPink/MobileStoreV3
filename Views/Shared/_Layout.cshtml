@@ -6,14 +6,27 @@
     <title>@ViewBag.Title Mobile Store</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/Scripts/mdb.min.js")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Content/fontawesome/all.js")
+    @Styles.Render("~/Content/fontawesome/css/all.css")
+    @Styles.Render("~/Content/css/mdb")
+    @Styles.Render("~/Content/bootstrap")
 
 </head>
 <body>
     <style>
-        .carousel-item {
-            height: 50vh;
+        .gradient-custom-2 {
+            /* fallback for old browsers */
+            background: #fccb90;
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
         }
-
+        .carousel-item {
+        height: 50vh;
+        }
         .card {
             box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
         }
@@ -40,7 +53,7 @@
         }
     </style>
     <!-- Navbar -->
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light text-bg-info">
+    <nav class="navbar fixed-top navbar-expand-lg text-bg-info gradient-custom-2">
         <!-- Container wrapper -->
         <div class="container">
             <!-- Toggle button -->
@@ -66,19 +79,16 @@
                 <!-- Left links -->
                 <ul class="navbar-nav me-auto mb-2 mb-lg-2">
                     <li>
-                        <a class="nav-link" href="https://localhost:44372/">Home</a>
+                        @Html.ActionLink("Home", "Index", "Home", new { returnUrl = "https://localhost:44372/Home" }, new { @class = "nav-link" })
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="https://localhost:44372/MobilePhone/">Shop</a>
+                        @Html.ActionLink("Cart", "Cart", "Customer", new { returnUrl = "https://localhost:44372/Customer/Cart" }, new { @class = "nav-link" })
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="https://localhost:44372/Customer/ShoppingCart">Cart</a>
+                        @Html.ActionLink("About", "About", "Home", new { returnUrl = "https://localhost:44372/About" }, new { @class = "nav-link" })
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="https://localhost:44372/Home/About"> About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://localhost:44372/Home/Contact">Contact</a>
+                        @Html.ActionLink("Contact", "Contact", "Home", new { returnUrl = "https://localhost:44372/Home/Contact" }, new { @class = "nav-link" })
                     </li>
                 </ul>
                 <!-- Left links -->
@@ -110,14 +120,3 @@
     </div>
 </body>
 </html>
-
-
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-    @Styles.Render("~/Content/fontawesome")
-    @Scripts.Render("~/scripts/mdb")
-    @Styles.Render("~/Content/mdb")
-    @Styles.Render("~/Content/bootstrap")
-    @RenderSection("scripts", required: false)
-}

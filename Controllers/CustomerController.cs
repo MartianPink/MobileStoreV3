@@ -57,7 +57,7 @@ namespace MobileStoreV3.Controllers
         }
 
         // GET: CustomerModel/ShoppingCart/5
-        public ActionResult ShoppingCart()
+        public ActionResult Cart()
         {
             /*CustomerModel customer = db.Customers.Find(1);
             if (customer == null)
