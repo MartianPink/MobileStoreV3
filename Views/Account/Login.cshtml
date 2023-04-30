@@ -66,15 +66,13 @@
                                     </div>
 
                                     <div class="pt-1 mb-5 pb-1">
-                                        <button class="btn btn-default btn-outline-primary" type="button">
-                                            Login
-                                        </button>
+                                        <input class=" btn-outline-primary" type="submit" value="Login">
                                         <a class="text-muted" href="#!">Forgot password?</a>
                                     </div>
 
                                     <div class="d-flex align-items-center justify-content-center pb-4">
                                         <p class="mb-0 me-2">Don't have an account?</p>
-                                        @Html.ActionLink("Create New", "Register", "Account", new { returnUrl = "https://localhost:44372/Account/Register" }, new { @class = "btn btn-default btn-outline-primary" })
+                                        @Html.ActionLink("Create New", "Register", "Account", new { returnUrl = "https://localhost:44372/Account/Register" }, new { @class = "btn-outline-primary" })
                                     </div>
                                 </form>
 

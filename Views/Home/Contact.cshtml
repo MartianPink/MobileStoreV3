@@ -1,17 +1,91 @@
-﻿@{
+﻿@model  MobileStoreV3.Models.SendMail
+
+@{
     ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/modernizr")
+@Scripts.Render("~/Scripts/mdb.min.js")
+@Scripts.Render("~/bundles/jqueryval")
+@Scripts.Render("~/Content/fontawesome/all.js")
+@Styles.Render("~/Content/fontawesome/css/all.css")
+@Styles.Render("~/Content/css/mdb.dark.min.css")
+@Styles.Render("~/Content/bootstrap")
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+<style>
+    .gradient-custom-2 {
+        /* fallback for old browsers */
+        background: #fccb90;
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+    }
+
+    @@media (min-width: 768px) {
+        .gradient-form {
+            height: 100vh !important;
+        }
+    }
+
+    @@media (min-width: 769px) {
+        .gradient-custom-2 {
+            border-top-right-radius: .3rem;
+            border-bottom-right-radius: .3rem;
+        }
+    }
+</style>
+<h1></h1>
+
+<section class="h-100 gradient-form" style="background-color: #eee;">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-xl-10">
+                <div class="card rounded-3 text-black">
+                    <div class="row g-0">
+                        <div class="col-lg-6">
+                            <div class="card-body p-md-5 mx-md-4">
+                                <fieldset>
+                                    @using (Html.BeginForm())
+                                    {
+                                        @Html.ValidationSummary()
+                                        <p>From: </p>
+                                        <p>@Html.TextBoxFor(m => m.From)</p>
+                                        <p>To: </p>
+                                        <p>@Html.TextBoxFor(m => m.To)</p>
+                                        <p>Subject: </p>
+                                        <p>@Html.TextBoxFor(m => m.Subject)</p>
+                                        <p>Body: </p>
+                                        <p>@Html.TextAreaFor(m => m.Body)</p>
+                                        <input type="submit" value="Send" />
+                                    }
+                                </fieldset>
+                                <address>
+                                    Tshwane University of Technology<br />
+                                    Pretoria, GP<br />
+                                    <abbr title="Phone">P: +27 12 000 0000</abbr>
+                                    425.555.0100
+                                </address>
+
+                                <address>
+                                    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@TheMobileStore.com</a><br />
+                                    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@TheMobileStore.com</a>
+                                </address>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+                            <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                                <h3 class="mb-4">Pop us a mail!</h3>
+                                <p class="small mb-lg-0">
+                                    Need to send a paper boat? no problem!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

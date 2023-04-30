@@ -65,22 +65,30 @@
                                             @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
                                         </div>
                                     </div>
+
                                     <div class="form-group">
                                         @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
                                         <div class="col-md-10">
                                             @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
                                         </div>
                                     </div>
+
                                     <div class="form-group">
                                         @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
                                         <div class="col-md-10">
                                             @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
                                         </div>
                                     </div>
+
                                     <div class="form-group" style="padding-top:10px">
                                         <div class="col-md-offset-3 col-md-10">
-                                            <input type="submit" class="btn btn-default btn-outline-primary" value="Register" />
+                                            <input type="submit" class="btn-outline-primary" value="Register" />
                                         </div>
+                                    </div>
+
+                                    <div class="d-flex align-items-center justify-content-center pb-4" style="padding-top:10px">
+                                        <p class="mb-0 me-2">Already have an account?</p>
+                                        @Html.ActionLink("Login", "Login", "Account", new { returnUrl = "https://localhost:44372/Account/Login" }, new { @class = "btn-outline-primary" })
                                     </div>
                                 }
                             </div>
