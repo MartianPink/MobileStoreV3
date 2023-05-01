@@ -213,25 +213,28 @@
         <!-- Products -->
         <section id="stock">
             <div class="text-center">
-                @for (int x = 0; x < 4; x++)
-                {
-                    string el = "";
-                    switch (x)
-                    {
-                        case 0:
-                            el = "Apple";
-                            break;
-                        case 1:
-                            el = "Samsung";
-                            break;
-                        case 2:
-                            el = "Oppo";
-                            break;
-                        case 3:
-                            el = "Xiaomi";
+                @for (int x = 0; x < 5; x++)
+                            {
+                                string el = "";
+                                switch (x)
+                                {
+                                    case 0:
+                                        el = "Apple";
+                                        break;
+                                    case 1:
+                                        el = "Samsung";
+                                        break;
+                                    case 2:
+                                        el = "Oppo";
+                                        break;
+                                    case 3:
+                                        el = "Xiaomi";
+                                        break;
+                                    case 4:
+                            el = "Nokia";
                             break;
 
-                    }
+                                }
                     <div class="row" id="@el" style="margin-top:30px">
                         <div class="card" style="padding:5px">
                             @for (int i = 0; i < Model.Count(); i++)
@@ -240,7 +243,7 @@
                                 <div class="col-lg-4 col-md-6 mb-4" style="padding:5px">
 
                                     @if (data.Name.Trim().ToLower() == el.ToLower())
-                                    {
+                        {
                                         <div class="card">
                                             <a href="#!">
                                                 <div class="mask">
