@@ -39,7 +39,7 @@ namespace MobileStoreV3.MyRoleProvider
         public override string[] GetRolesForUser(string username)
         {
             MobileStoreV3Entities StoreV3Entities = new MobileStoreV3Entities();
-            string data = StoreV3Entities.Users.Where(x => x.Username == username).FirstOrDefault().Role;
+            string data = StoreV3Entities.Users.Where(x => x.Username == username).First().Role;
             string[] result = { data };
             return result;
         }

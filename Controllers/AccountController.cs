@@ -139,6 +139,7 @@ namespace MobileStoreV3.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
+            ViewBag.ReturnUrl = "https://localhost:44372/Account/Register";
             return View();
         }
 

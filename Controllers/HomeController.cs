@@ -21,6 +21,7 @@ namespace MobileStoreV3.Controllers
             
         public ActionResult Login()
         {
+            ViewBag.ReturnUrl = "https://localhost:44372/Account/Login";
             return View();
         }
 
@@ -53,6 +54,14 @@ namespace MobileStoreV3.Controllers
             return RedirectToAction("Login","Home");
         }
 
+        public ActionResult About()
+        {
+            return View("About");
+        }
 
+        public ActionResult Contact()
+        {
+            return View("Contact");
+        }
     }
 }
