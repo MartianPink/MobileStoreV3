@@ -2466,6 +2466,7 @@
     <Content Include="Scripts\mdb.min.js.map" />
     <Content Include="Views\MobilePhone\_AddMobilePhone.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Customer\_Product.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\" />

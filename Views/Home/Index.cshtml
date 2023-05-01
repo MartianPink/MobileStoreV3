@@ -31,6 +31,10 @@
     }
 </style>
 <!-- carousel -->
+@if(User.Identity.IsAuthenticated)
+{ 
+ 
+}
 <div id="carouselExampleCaptions" class="carousel slide carousel-fade parallax" data-mdb-ride="carousel">
     <!--TODO : Make the carousel dynamic-->
     <div class="carousel-inner">
@@ -173,7 +177,7 @@
             <div class="container-fluid">
 
                 <!-- Navbar brand -->
-                <a class="navbar-brand" href="#">Brand:</a>
+                <a class="navbar-brand shadow-sm" href="#">Brand:</a>
 
                 <!-- Collapsible wrapper -->
                 <div class="collapse navbar-collapse" id="navbarSupportedContent2">
@@ -229,18 +233,15 @@
 
                     }
                     <div class="row" id="@el" style="margin-top:30px">
-                        <div class="card" style="padding:15px">
-                            <div class="col-lg-3 col-md-6 mb-4" style="padding:15px">
-                                @for (int i = 0; i < Model.Count(); i++)
-                                {
-                                    var data = Model.ElementAt(i);
+                        <div class="card" style="padding:5px">
+                            @for (int i = 0; i < Model.Count(); i++)
+                            {
+                                var data = Model.ElementAt(i);
+                                <div class="col-lg-4 col-md-6 mb-4" style="padding:5px">
 
-                                    if (data.Name.Trim().ToLower() == el.ToLower())
+                                    @if (data.Name.Trim().ToLower() == el.ToLower())
                                     {
-                                        <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
-                                             data-mdb-ripple-color="light">
-                                            <img src="@data.ImageUrl"
-                                                 class="w-100" />
+                                        <div class="card">
                                             <a href="#!">
                                                 <div class="mask">
                                                     <div class="d-flex justify-content-start align-items-end h-100">
@@ -251,28 +252,31 @@
                                                     <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
                                                 </div>
                                             </a>
-                                        </div>
-                                        <div class="card-body">
-                                            <a href="" class="text-reset">
-                                                <h5 class="card-title mb-2">@Html.DisplayFor(modelItem => data.Name)</h5>
-                                            </a>
-                                            <a href="" class="text-reset ">
-                                                <p>@Html.DisplayFor(modelItem => data.Description)</p>
-                                            </a>
-                                            <h6 class="mb-3 price">R @Html.DisplayFor(modelItem => data.Price)</h6>
-                                        </div>
-                                        <div class="card-body">
-                                            <a href="" class="text-reset">
-                                                <h5 class="card-title mb-2">
-                                                    @Html.ActionLink("Add to cart", "AddItemToCart", new { id = data.Id })
-                                                    <i class="fas fa-shopping-cart ms-2"></i>
-                                                </h5>
-                                            </a>
+                                            <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
+                                                 data-mdb-ripple-color="light">
+                                                <img src="@data.ImageUrl"
+                                                     alt="@data.Name - @data.Description"
+                                                     class="w-100" />
+                                            </div>
+                                            <div class="card-body">
+                                                <a href="" class="text-reset ">
+                                                    <p>@Html.DisplayFor(modelItem => data.Description)</p>
+                                                </a>
+                                                <h6 class="mb-3 price">R @Html.DisplayFor(modelItem => data.Price)</h6>
+                                            </div>
+                                            <div class="card-body">
+                                                <a href="" class="text-reset">
+                                                    <h5 class="card-title mb-2">
+                                                        @Html.ActionLink("Add to cart", "AddItemToCart", new { id = data.Id })
+                                                        <i class="fas fa-shopping-cart ms-2"></i>
+                                                    </h5>
+                                                </a>
+                                            </div>
                                         </div>
                                     }
-                                }
                                 </div>
-                            </div>
+                            }
+                        </div>
                         </div>
                 }
             </div>
@@ -303,7 +307,7 @@
             </main>
 <!--Main layout-->
 
-<footer class="text-center text-white mt-4 gradient-custom-2">
+<footer class="text-center text-white mt-4 gradient-custom-2 shadow-sm">
 
     <!--Call to action-->
     <div class="pt-4 pb-2">
@@ -369,7 +373,7 @@
     </div>
     <!-- Grid container -->
     <!-- Copyright -->
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2); text-color: #E0E0E0">
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2); color: #E0E0E0">
         © 2022 Copyright:
         <a class="text-white" href="https://mdbootstrap.com/">MobilePhoneStore.com</a>
     </div>

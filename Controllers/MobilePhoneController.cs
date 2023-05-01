@@ -20,6 +20,13 @@ namespace MobileStoreV3.Controllers
             return View("Index",mobilePhones);
         }
 
+        // GET: Product
+        public ActionResult Product(string id)
+        {
+            var device = db.MobilePhones.ToList();
+            return View("_Product", device);
+        }
+
         // GET: MobilePhoneM/AddProduct
         //[Authorize(Roles = "cashier")]
         public ActionResult AddProduct( string returnUrl)

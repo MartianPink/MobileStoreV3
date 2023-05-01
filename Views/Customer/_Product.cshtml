@@ -1,0 +1,66 @@
+﻿@model IEnumerable<MobileStoreV3.Models.MobilePhoneModel>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/Scripts/mdb.min.js")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Content/fontawesome/all.js")
+    @Styles.Render("~/Content/fontawesome/css/all.css")
+    @Styles.Render("~/Content/css/mdb")
+    @Styles.Render("~/Content/bootstrap")
+
+</head>
+<body>
+
+    @for (int i = 0; i < 1; i++)
+    {
+        var data = Model.ElementAt(i);
+        <div class="row" id="" style="margin-top:30px">
+            <div class="card" style="padding:5px">
+                <div class="col-lg-4 col-md-6 mb-4" style="padding:5px">
+
+                    <div class="card">
+                        <a href="#!">
+                            <div class="mask">
+                                <div class="d-flex justify-content-start align-items-end h-100">
+                                    <h5><span class="badge bg-dark ms-2">@data.Name</span></h5>
+                                </div>
+                            </div>
+                            <div class="hover-overlay">
+                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                            </div>
+                        </a>
+                        <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
+                             data-mdb-ripple-color="light">
+                            <img src="@data.ImageUrl"
+                                 class="w-100" />
+                        </div>
+                        <div class="card-body">
+                            <a href="" class="text-reset ">
+                                <p>@Html.DisplayFor(modelItem => data.Description)</p>
+                            </a>
+                            <h6 class="mb-3 price">R @Html.DisplayFor(modelItem => data.Price)</h6>
+                        </div>
+                        <div class="card-body">
+                            <a href="" class="text-reset">
+                                <h5 class="card-title mb-2">
+                                    @Html.ActionLink("Add to cart", "AddItemToCart", new { id = data.Id })
+                                    <i class="fas fa-shopping-cart ms-2"></i>
+                                </h5>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+                }
+            </div>
+        </div>
+    }
+</body>
+</html>
